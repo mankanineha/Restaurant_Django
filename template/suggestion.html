@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Suggestions</title>
+</head>
+
+<body>
+    <h1>Suggested Restaurants</h1>
+    {% if sugg %}
+    <div class="row">
+        {% for res in sugg %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ res.0 }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ res.1 }}</h6>
+                    <p class="card-text">Rating: {{ res.2 }}</p>
+                    <p class="card-text">Famous Dishes: {{ res.3 }}</p>
+                    <p class="card-text">Cost for two (approx.): {{ res.4 }}</p>
+                    <p class="card-text">Address: {{ res.5 }}</p>
+                    <a href="/review/{{ res.0 }}">Leave a Review</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No suggestions available.</p>
+    {% endif %}
+</body>
+
+</html>
+
+</html>
